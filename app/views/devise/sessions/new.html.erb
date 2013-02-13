@@ -1,17 +1,70 @@
-<h2>Sign in</h2>
+<div class="span8">
+	<h2>Signing in is Easy and Secure</h2>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div class="row">
+	<div class="span4">
+		<%= simple_form_for(resource,
+		:as => resource_name,
+		:url => session_path(resource_name),
+		html: {class: "well"} ) do |f| %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+		<fieldset>
+			<legend>
+				Sign in
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+			</legend>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+			<%= f.input :email, :autofocus => true %>
+			<%= f.input :password %>
 
-<%= render "devise/shared/links" %>
+			<% if devise_mapping.rememberable? -%>
+			<%= f.input :remember_me, as: :boolean %>
+			<% end -%>
+
+			<div>
+				<%= f.button :submit, "Sign in" %>
+			</div>
+		</fieldset>
+		<% end %>
+	</div>
+
+	<div class="span4">
+		<%= simple_form_for(resource,
+		:as => resource_name,
+		:url => session_path(resource_name),
+		html: {class: "well"} ) do |f| %>
+
+		<fieldset>
+			<legend>
+				Don't have an account ? Login!!!
+			</legend>
+			<% 
+			# <%= render "devise/shared/links" 
+			%>
+			<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+			  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+			<% end -%>
+
+		</fieldset>
+		<% end %>
+		<div >
+		<%= simple_form_for(resource,
+		:as => resource_name,
+		:url => session_path(resource_name),
+		html: {class: "well"} ) do |f| %>
+
+		<fieldset>
+			<legend>
+				Need help
+			</legend>
+			<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+			  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+			<% end -%>
+
+		</fieldset>
+		<% end %>
+	</div>
+	</div>
+	
+</div>

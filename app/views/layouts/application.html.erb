@@ -7,38 +7,63 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-
-		<div class="navbar  navbar-inverse navbar-fixed-top">
+		<div class="container">
+	
+		<div class="navbar  navbar-inverse">
 			<div class="navbar-inner">
-				<div class="container">
+				
 
 					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-
 					<!-- Be sure to leave the brand out there if you want it shown -->
 					<a class="brand" href="/">Tree House Statuses Project</a>
-
+					<ul class="nav">
+						<li>
+							<%= link_to "All Statuses", statuses_path, class: "nav" %>
+						</li>
+						<li>
+							<%= link_to 'New Status', new_status_path, class: "nav" %>
+						</li>
+					</ul>
+					<ul class="nav pull-right">
+						<% if user_signed_in? %>
+						<li>
+							<%= link_to current_user.full_name, edit_user_registration_path %>
+						</li>
+						<li>
+							<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+						</li>
+						<% else %>
+						<li>
+							<%= link_to "Register",   new_user_registration_path, method: :get %>
+						</li>
+						<li>
+							<%= link_to "Log in",  user_session_path, method: :post %>
+						</li>
+						
+						<% end %>
+					</ul>
+			
 					<!-- Everything you want hidden at 940px or less, place within here -->
 					<div class="nav-collapse collapse">
 						<!-- .nav, .navbar-search, .navbar-form, etc -->
-					<%= link_to "All Statuses", statuses_path, class: "nav" %>
-					<%= link_to 'New Status', new_status_path, class: "nav" %>
 					</div>
 
-				</div>
 			</div>
 		</div>
 
-		<div class="container">
 			<!-- Devise step 3/5 -->
-			<p class="notice"><%= notice %></p>
-       		<p class="alert"><%= alert %></p>
-       
+			<p class="notice">
+				<%= notice %>
+			</p>
+			<p class="alert">
+				<%= alert %>
+			</p>
+
 			<%= yield %>
 			<div>
 				Footer
 			</div>
-		</div>
-
+		
 	</body>
 </html>
