@@ -58,5 +58,8 @@ module Treebook
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Devise Step 4 /5. Step 5 is rails g devise:views ... step 0 is install rails g devise:install
+    config.assets.initialize_on_precompile = false
   end
 end
