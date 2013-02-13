@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Treebook</title>
+		<title>Jesus' Treebook</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
 
-		<div class="navbar  navbar-inverse">
+		<div class="navbar  navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
 
@@ -17,12 +17,12 @@
 
 					<!-- Be sure to leave the brand out there if you want it shown -->
 					<a class="brand" href="/">Tree House Statuses Project</a>
-					<%= link_to "All Statuses", statuses_path, class: "brand" %>
-					<%= link_to 'New Status', new_status_path, class: "brand" %>
 
 					<!-- Everything you want hidden at 940px or less, place within here -->
 					<div class="nav-collapse collapse">
 						<!-- .nav, .navbar-search, .navbar-form, etc -->
+					<%= link_to "All Statuses", statuses_path, class: "nav" %>
+					<%= link_to 'New Status', new_status_path, class: "nav" %>
 					</div>
 
 				</div>
