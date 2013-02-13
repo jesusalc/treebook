@@ -27,8 +27,8 @@ class UserTest < ActiveSupport::TestCase
     user.profile_name = 'jesusalc'
     user.first_name = 'Jesus'
     user.last_name = "Alc"
-    user.password = "machoman"
-    user.password_confirmation = "machoman"
+    user.password = "password"
+    user.password_confirmation = "password"
     user.email = "jesusalc@yahoo.com"
     assert !user.save
     puts user.errors.inspect
