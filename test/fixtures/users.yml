@@ -13,7 +13,6 @@ jesus:
     last_name: "Alc"
     email: "jesusalc@yahoo.com"
     profile_name: "jesusalc"
-    password: "password"
-    password_confirmation: "password"
+   
 # two: {}
 #  column: value
