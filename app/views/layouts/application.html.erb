@@ -53,13 +53,18 @@
 		</div>
 
 			<!-- Devise step 3/5 -->
-			<p class="notice">
-				<%= notice %>
-			</p>
-			<p class="alert">
-				<%= alert %>
-			</p>
-
+			<% if flash[:notice] %>
+				<div class="alert alert-success">
+					<buttton class="close" data-dismiss="alert">X</buttton>
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+			<% if flash[:alert] %>
+				<div class="alert alert-error">
+					<buttton class="close" data-dismiss="alert">X</buttton>
+					<%= flash[:alert] %>
+				</div>
+			<% end %>
 			<%= yield %>
 			<div>
 				Footer
