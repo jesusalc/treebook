@@ -598,3 +598,29 @@ Processing by Devise::SessionsController#destroy as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "statuses"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2013-02-14 02:24:35', '2013-02-14 02:24:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "statuses" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2013-02-14 02:24:35', '2013-02-14 02:24:35', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "profile_name", "created_at", "updated_at", "id") VALUES ('Jesus', 'Alc', 'jesusalc@yahoo.com', 'jesusalc', '2013-02-14 02:24:35', '2013-02-14 02:24:35', 346809599)
+  [1m[36m (142.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/login" for 127.0.0.1 at 2013-02-13 18:24:35 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (137.1ms)
+Completed 200 OK in 174ms (Views: 159.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/register" for 127.0.0.1 at 2013-02-13 18:24:35 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (2.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Started GET "/logout" for 127.0.0.1 at 2013-02-13 18:24:35 -0800
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
